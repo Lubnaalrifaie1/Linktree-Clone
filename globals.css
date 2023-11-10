@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: .25s ease-in-out;
+}
+
+*::selection {
+  background-color: rgb(58, 224, 154);
+  color: #fff;
+}
+
+.dashboard *::selection {
+  background-color: #3AE09A;
+  color: #fff;
+}
+
+
+.bg-dark {
+  background-color: #3b3b3b;
+}
+
+.try {
+  filter: saturate(50%) invert(1) blur(2px);
+}
+
+.flicker {
+  animation: rgba 1s linear infinite, flick 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+.flicker:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.flicker:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.flicker:nth-child(3) {
+  animation-delay: 3s;
+}
+
+.flicker:nth-child(4) {
+  animation-delay: 4s;
+}
+
+@layer utilities {
+  .glow-white:hover {
+    box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.flicker:nth-child(5) {
+  animation-delay: 5s;
+}
+
+.flicker:nth-child(6) {
+  animation-delay: 6s;
+}
+
+.flicker:nth-child(7) {
+  animation-delay: 7s;
+}
+
+@keyframes flick {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes rgba {
+  50% {
+    filter: hue-rotate(90deg) blur(50px);
+  }
+}
+
+.dropshadow {
+  filter: drop-shadow(0 10px 25px rgba(255, 255, 255, 0.25));
+}
+
+.dropshadow:has(input:focus) {
+  filter: drop-shadow(0 10px 25px rgba(255, 255, 255, 0.5));
+}
+
+.dropshadow-good {
+  filter: drop-shadow(0 10px 25px rgba(58, 224, 154, 0.25));
+}
+
+.dropshadow-good:has(input:focus) {
+  filter: drop-shadow(0 10px 25px rgba(58, 224, 154, 0.5));
+}
+
+.dropshadow-bad {
+  filter: drop-shadow(0 10px 25px rgba(255, 44, 79, 0.25));
+}
+
+.dropshadow-bad:has(input:focus) {
+  filter: drop-shadow(0 10px 25px rgba(255, 44, 79, 0.5));
+}
+
+.nopointer {
+  pointer-events: none;
+}
+
+.myInput {
+  border: 2px solid transparent;
+}
+
+.myInput:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.myInput.hasError {
+  border: 2px solid rgba(255, 44, 79, 1);
+  animation: shake 0.4s ease-in-out forwards;
+}
+
+.myInput.good {
+  border: 2px solid rgb(58, 224, 154);
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-3px);
+  }
+
+  20% {
+    transform: translateX(3px);
+  }
+
+  40% {
+    transform: translateX(-2px);
+  }
+
+  60% {
+    transform: translateX(2px);
+  }
+
+  80% {
+    transform: translateX(-1px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.enter {
+  animation: enter ease-in-out .5s forwards;
+  animation-delay: .15s;
+  opacity: 0;
+}
+
+.enterCard {
+  animation: enterCard ease-in-out .25s forwards;
+  opacity: 0;
+}
+
+.leaveCard {
+  animation: leaveCard ease-in-out .25s forwards;
+  pointer-events: none;
+}
+
+@keyframes enter {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes enterCard {
+  from {
+    transform: translateY(-10%) scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    z-index: 50;
+  }
+}
+
+@keyframes leaveCard {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  
+  to {
+    transform: translateY(-10%) scale(0.95);
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+.banner {
+  transition: max-height 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.openBanner {
+  max-height: 20rem;
+}
+
+.closeBanner {
+  max-height: 0;
+}
+
+.navCard:has(.leaveCard) {
+  display: none;
+}
+
+.userBtn:has(a:active) {
+  transform: scale(.95);
+}
