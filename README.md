@@ -30,7 +30,7 @@ LinkTree stands out as a widely used platform enabling users to fashion a custom
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fabiconcept/linktree.git
+   git clone https://github.com/Lubnaalrifaie1/linktree-clone.git
    ```
 
 2. Install the dependencies:
